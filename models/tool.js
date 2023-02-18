@@ -8,6 +8,8 @@ const ToolSchema = new Schema({
     price : {type: Schema.Types.Number},
     stock : {type: Number, default:100},
 },{
+    toJSON : {virtuals : true},
+    timestamps : true,
     collection:"tools"
 });
 const tool = mongoose.model("Tools",ToolSchema)
