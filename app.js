@@ -10,6 +10,7 @@ const passport = require('passport')
 const errorHandler = require('./middleware/errorHandler')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/user');
+var typesRouter = require('./routes/type');
 
 var app = express();
 mongoose.connect(config.MONGODB_URL,{useNewUrlParser: true, useUnifiedTopology: true});
@@ -28,7 +29,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize())
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/user', usersRouter);
+app.use('/type',typesRouter);
 app.use(errorHandler)
 
 
