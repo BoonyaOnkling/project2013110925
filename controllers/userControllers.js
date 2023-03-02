@@ -126,10 +126,9 @@ exports.register = async(req, res ,next) =>{
         })
 
         if(user.deletedCount === 0){
-            const error = new Error("ไม่สามารถลบได้ ไม่พบข้อมูลบริษัท")
+            const error = new Error("ไม่สามารถลบได้ ไม่พบข้อมูลผู้ใช้งาน")
             error.statusCode = 404
             throw error;
-            //throw new Error('ไม่สามารถลบได้ ไม่พบข้อมูลบริษัท')
         } else{
             res.status(200).json({
                 Message: 'ลบข้อมูลเรียบร้อยแล้ว'
